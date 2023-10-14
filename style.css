@@ -73,12 +73,16 @@ body {
   }
 }
 
-.moderador {
-  outline: 2px solid oklch(0.55 0.23 144.33 / 0.36);
+.moderator {
+  outline: 2px solid oklch(0.55 0.23 144.33 / 0.49);
+}
+
+.vip {
+  outline: 2px solid oklch(0.65 0.33 319.7 / 0.49);
 }
 
 .viewer {
-  outline: 2px solid oklch(0.55 0.24 259.08 / 0.1);
+  outline: 2px solid oklch(0.55 0.24 259.08 / 0.2);
 }
 
 .message_viewer-name {
@@ -169,6 +173,8 @@ body {
   margin-left: 0.5rem;
   font-size: 1.15rem;
   font-weight: 500;
+  align-items: center;
+  padding-top: 1rem;
 }
 
 .message_currentMessage-text img {
