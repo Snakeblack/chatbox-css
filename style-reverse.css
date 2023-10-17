@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600&display=swap");
+
+body {
+  height: 100svh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  color: #cccccc;
+}
+
+#root{
+  height: 100%;
+  padding-top: 1rem;
+  overflow: hidden;
+}
+
+.messages_container {
+  font-family: "Tektur", sans-serif;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  flex-direction: column;
+  align-items: start;
+  backdrop-filter: blur(2rem);
+  background-color: rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    122deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  background-clip: padding-box;
+  align-self: stretch;
+  padding: 1.2rem 1rem;
+  padding-top: 1.7rem !important;
+  position: relative;
+  border-radius: 1.5rem;
+  outline-offset: -3px;
+  outline: 2px solid rgba(242, 242, 242, 0.05);
+  box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.5);
+  grid-row-gap: 1rem;
+}
+
+.message::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  z-index: -1;
+  background-image: linear-gradient(
+    122deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 46%,
+    rgba(0, 0, 0, 0.3) 47%,
+    rgba(0, 0, 0, 0.35) 48%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.4) 52%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  animation: shine 10s infinite alternate-reverse;
+  background-size: 400% 400%;
+  border-radius: 1.5rem;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.moderator {
+  outline: 2px solid oklch(0.55 0.23 144.33 / 0.49);
+}
+
+.vip {
+  outline: 2px solid oklch(0.65 0.33 319.7 / 0.49);
+}
+
+.viewer {
+  outline: 2px solid oklch(0.55 0.24 259.08 / 0.2);
+}
+
+.message_viewer-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 1rem currentColor;
+  padding: 0.5rem 1.8rem;
+  
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  flex-direction: column;
+  align-items: start;
+  backdrop-filter: blur(5rem);
+  background-color: rgba(4, 7, 11, 0.867);
+  align-self: stretch;
+  border-radius: 1.5rem;
+  outline: 2px solid rgba(7, 14, 22, 0.5);
+  box-shadow: 0 0.9rem 1rem rgba(0, 0, 0, 0.394);
+  grid-row-gap: 1rem;
+}
+
+.message_userBadge {
+  --size: 1rem;
+  width: var(--size);
+  height: var(--size);
+}
+
+.message_userBadge-primary {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  z-index: 1;
+  border-radius: 50%;
+  filter: opacity(0.5) saturate(1.5);
+}
+
+.message_viewer {
+  display: flex;
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+}
+.message_currentMessage-box {
+  color: #fbfbfbe1;
+  display: flex;
+}
+
+.message_viewer-avatar {
+  position: relative;
+  --size: 2.5rem;
+  width: var(--size);
+  height: var(--size);
+  margin-right: 0.5rem;
+  display: none;
+}
+
+.message_viewer-avatarImg {
+  --size: 2.5rem;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  background-image: url("https://previews.123rf.com/images/seamartini/seamartini2209/seamartini220900847/190933413-caricatura-llorando-cara-con-ojos-h%C3%BAmedos-emoji-llor%C3%B3n-con-l%C3%A1grimas-expresi%C3%B3n-facial-insatisfecha.jpg");
+  background-size: cover;
+  box-shadow: 0 0 1rem currentColor;
+}
+
+.message_currentMessage-otherViewerBadges {
+  display: flex;
+  align-items: center;
+  margin-left: 0.25rem;
+  
+}
+
+.message_viewer-name::after {
+  content: ">";
+  margin: 0 0.25rem;
+  display: none;
+}
+
+.message_currentMessage-text {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.message_currentMessage-text img {
+  width: 3rem;
+  height: 3rem;
+  max-width: 6rem;
+  object-fit: contain;
+}
+
+.newMessage .message_currentMessage-text::after {
+  content: "_";
+  animation: cursor 250ms linear infinite;
+}
+
+.message_viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message_viewer-defaultImg {
+  position: absolute;
+  top: 0;
+}
+
+.message_currentMessage-otherViewerBadges {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+}
+
+.message_currentMessage-otherViewerBadges:has(> img)::after {
+  content: "-";
+  margin-left: 0.25rem;
+  color: #9046ff7c;
+  font-weight: bold;
+}
+.message_currentMessage-otherViewerBadges:has(> img)::before {
+  content: "-";
+  margin-right: 0.25rem;
+  color: #9046ff7c;
+  font-weight: bold;
+}
+
+.message_userBadge-others {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
