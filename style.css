@@ -24,12 +24,12 @@ body {
   flex-direction: column;
   align-items: start;
   backdrop-filter: blur(2rem);
-  background-color: rgba(0, 0, 0, 0.25);
+  /* background-color: rgba(0, 0, 0, 0.25);
   background: linear-gradient(
     122deg,
     rgba(0, 0, 0, 0.4) 0%,
     rgba(0, 0, 0, 0.2) 100%
-  );
+  ); */
   background-clip: padding-box;
   align-self: stretch;
   padding: 1.2rem 1rem;
