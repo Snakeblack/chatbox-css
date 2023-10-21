@@ -100,11 +100,11 @@ body {
   flex-direction: column;
   align-items: start;
   backdrop-filter: blur(5rem);
-  background-color: rgba(4, 7, 11, 0.867);
+  /* background-color: rgba(4, 7, 11, 0.867); */
   align-self: stretch;
   border-radius: 1.5rem;
   outline: 2px solid rgba(7, 14, 22, 0.5);
-  box-shadow: 0 0.9rem 1rem rgba(0, 0, 0, 0.394);
+  /* box-shadow: 0 0.9rem 1rem rgba(0, 0, 0, 0.394); */
   grid-row-gap: 1rem;
 }
 
