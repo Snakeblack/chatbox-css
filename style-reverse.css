@@ -2,11 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600&display=swap");
 
 body {
-  height: 100svh; 
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: end;
   color: #cccccc;
+  background: rgba(255, 255, 255, 0) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+  margin: 0;
 }
 
 #root{
@@ -20,6 +23,7 @@ body {
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
+  padding: 1rem 2rem;
 }
 
 .message {
@@ -29,7 +33,7 @@ body {
   margin: 0.5rem;
   flex-direction: column;
   align-items: start;
-  backdrop-filter: blur(2rem);
+  /* backdrop-filter: blur(2rem); */
   background-color: rgba(0, 0, 0, 0.25);
   background: linear-gradient(
     122deg,
@@ -71,47 +75,49 @@ body {
   border-radius: 1.5rem;
 }
 
-@keyframes shine {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
 .moderator {
-  outline: 2px solid oklch(0.55 0.23 144.33 / 0.49);
+  /* outline: 2px solid oklch(0.55 0.23 144.33 / 0.49); */
+  outline: 2px solid rgba(0, 144, 0, 0.525);
 }
 
 .vip {
-  outline: 2px solid oklch(0.65 0.33 319.7 / 0.49);
+  /* outline: 2px solid oklch(0.65 0.33 319.7 / 0.49); */
+  outline: 2px solid rgba(179, 0, 255, 0.461);
 }
 
 .viewer {
-  outline: 2px solid oklch(0.55 0.24 259.08 / 0.2);
+  /* outline: 2px solid oklch(0.55 0.24 259.08 / 0.2); */
+  outline: 2px solid rgba(0, 110, 255, 0.284);
+}
+
+.broadcaster {
+  outline: 2px solid rgba(231, 2, 2, 0.2);
 }
 
 .message_viewer-name {
+  --prueba: currentColor;
   font-weight: bold;
   font-size: 1.2rem;
   text-shadow: 0 0 1rem currentColor;
   padding: 0.5rem 1.8rem;
-  
-
   position: relative;
   display: flex;
   align-items: center;
   margin: 0.5rem;
   flex-direction: column;
   align-items: start;
-  backdrop-filter: blur(5rem);
-  background-color: rgba(4, 7, 11, 0.867);
+  /* backdrop-filter: blur(5rem); */
+  background-color: rgba(4, 7, 11, 0.932);
   align-self: stretch;
   border-radius: 1.5rem;
   outline: 2px solid rgba(7, 14, 22, 0.5);
   box-shadow: 0 0.9rem 1rem rgba(0, 0, 0, 0.394);
   grid-row-gap: 1rem;
+  filter: saturate(2);
+}
+
+.message:has(.message_viewer-name) {
+  background-color: var(--prueba);
 }
 
 .message_userBadge {
@@ -122,8 +128,8 @@ body {
 
 .message_userBadge-primary {
   position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
+  top: 1.3rem;
+  left: 1.3rem;
   z-index: 1;
   border-radius: 50%;
   filter: opacity(0.5) saturate(1.5);
@@ -164,8 +170,7 @@ body {
 .message_currentMessage-otherViewerBadges {
   display: flex;
   align-items: center;
-  margin-left: 0.25rem;
-  
+  /* margin-left: 0.25rem; */
 }
 
 .message_viewer-name::after {
@@ -181,7 +186,10 @@ body {
   font-size: 1.15rem;
   font-weight: 500;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 0.1rem;
+  color: white;
+  text-shadow: 0 0 1rem rgb(0, 0, 0);
+  margin-block-end: .5rem;
 }
 
 .message_currentMessage-text img {
@@ -209,12 +217,13 @@ body {
 
 .message_currentMessage-otherViewerBadges {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.5rem;
+  top: 1.3rem;
+  right: 1.3rem;
+  filter: brightness(0.5) saturate(1.5);
+  /* padding: 0.5rem; */
 }
 
-.message_currentMessage-otherViewerBadges:has(> img)::after {
+/* .message_currentMessage-otherViewerBadges:has(> img)::after {
   content: "-";
   margin-left: 0.25rem;
   color: #9046ff7c;
@@ -225,12 +234,12 @@ body {
   margin-right: 0.25rem;
   color: #9046ff7c;
   font-weight: bold;
-}
+} */
 
-.message_userBadge-others {
+/* .message_userBadge-others {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-}
+} */
 
 @keyframes cursor {
   0% {
@@ -241,5 +250,14 @@ body {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }
